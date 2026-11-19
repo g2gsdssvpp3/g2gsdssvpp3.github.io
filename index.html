@@ -1,0 +1,1720 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>今日头条网曝_网红黑料 | 舆情观察与内容生态品牌官网</title>
+<meta name="description" content="今日头条网曝 网红黑料品牌官方网站，聚焦网络舆情观察、内容生态治理与创作者责任，提供专业、真实的深度内容与社区讨论。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111827'/%3E%3Cpath d='M16 20h32v6H16zM16 32h20v6H16zM16 44h26v6H16z' fill='%23ef4444'/%3E%3Ccircle cx='46' cy='46' r='6' fill='%23fbbf24'/%3E%3C/svg%3E">
+<style>
+:root{
+--tt-red:#c8102e;
+--tt-red-soft:#e04654;
+--tt-ink:#14161c;
+--tt-ink-2:#262a34;
+--tt-paper:#f5f4f1;
+--tt-line:#dcd9d2;
+--tt-amber:#f0a828;
+--tt-slate:#4b5464;
+--tt-muted:#6f7686;
+--tt-radius:4px;
+--tt-radius-lg:10px;
+--tt-shadow:0 12px 32px rgba(20,22,28,.10);
+--tt-nav-h:56px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,sans-serif;
+background:var(--tt-paper);
+color:var(--tt-ink);
+line-height:1.75;
+font-size:16px;
+-webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+::selection{background:var(--tt-red);color:#fff}
+
+/* ====== 吸顶容器：公告条 + 页头 ====== */
+.tt-sticky-shell{
+position:sticky;top:0;z-index:200;
+box-shadow:0 1px 0 rgba(20,22,28,.08);
+}
+.tt-notice-bar{
+background:var(--tt-ink);
+color:#f1efe9;
+font-size:13px;
+letter-spacing:.02em;
+display:flex;align-items:center;gap:14px;
+padding:8px clamp(14px,4vw,44px);
+overflow:hidden;
+border-bottom:1px solid #2c303b;
+}
+.tt-notice-bar .tt-notice-tag{
+flex:0 0 auto;
+background:var(--tt-red);
+color:#fff;
+font-size:11px;
+font-weight:700;
+padding:2px 8px;
+border-radius:2px;
+letter-spacing:.12em;
+}
+.tt-notice-bar .tt-notice-track{
+flex:1 1 auto;
+display:flex;gap:38px;
+white-space:nowrap;
+overflow:hidden;
+position:relative;
+}
+.tt-notice-bar .tt-notice-track span{
+opacity:.9;
+}
+.tt-notice-bar .tt-notice-track span b{color:var(--tt-amber);font-weight:600}
+.tt-notice-link{flex:0 0 auto;font-size:12px;color:#c9c6be;border-bottom:1px dotted #7d7a72;padding-bottom:1px;white-space:nowrap}
+.tt-notice-link:hover{color:#fff}
+
+.tt-site-head{
+background:#ffffff;
+display:flex;align-items:center;gap:clamp(12px,2.4vw,32px);
+padding:0 clamp(14px,4vw,44px);
+height:var(--tt-nav-h);
+border-bottom:1px solid var(--tt-line);
+}
+.tt-brand{display:flex;align-items:center;gap:9px;flex:0 0 auto}
+.tt-brand-mark{
+width:30px;height:30px;border-radius:6px;
+background:var(--tt-ink);
+display:grid;place-items:center;
+position:relative;
+}
+.tt-brand-mark::before,
+.tt-brand-mark::after{
+content:"";position:absolute;background:var(--tt-red);
+}
+.tt-brand-mark::before{width:16px;height:3px;top:8px;left:7px;box-shadow:0 6px 0 var(--tt-red);}
+.tt-brand-mark::after{width:9px;height:3px;bottom:8px;left:7px;background:var(--tt-amber)}
+.tt-brand-text{display:flex;flex-direction:column;line-height:1.15}
+.tt-brand-name{font-size:16px;font-weight:800;letter-spacing:.04em}
+.tt-brand-sub{font-size:10px;color:var(--tt-muted);letter-spacing:.18em}
+
+.tt-main-nav{display:flex;align-items:center;gap:2px;flex:1 1 auto;overflow-x:auto;scrollbar-width:none}
+.tt-main-nav::-webkit-scrollbar{display:none}
+.tt-main-nav a{
+font-size:14px;padding:6px 12px;border-radius:3px;color:var(--tt-ink-2);
+white-space:nowrap;transition:background .18s,color .18s;
+}
+.tt-main-nav a:hover{background:#f0eee9;color:var(--tt-red)}
+.tt-main-nav a.is-active{color:var(--tt-red);font-weight:700}
+.tt-main-nav a.is-active::after{
+content:"";display:block;height:2px;background:var(--tt-red);margin-top:-3px;border-radius:2px;
+}
+
+.tt-head-tools{display:flex;align-items:center;gap:8px;flex:0 0 auto}
+.tt-search{
+display:flex;align-items:center;
+background:#f1efe9;border:1px solid #e2dfd8;border-radius:20px;
+padding:3px 4px 3px 12px;
+transition:border-color .2s,background .2s;
+}
+.tt-search:focus-within{border-color:var(--tt-red-soft);background:#fff}
+.tt-search input{
+border:none;background:transparent;outline:none;
+font-size:13px;width:132px;color:var(--tt-ink);
+font-family:inherit;
+}
+.tt-search button{
+width:26px;height:26px;border-radius:50%;background:var(--tt-red);color:#fff;
+display:grid;place-items:center;font-size:12px;
+}
+.tt-search button:hover{background:#a40d25}
+.tt-nav-toggle{
+display:none;width:38px;height:34px;border:1px solid var(--tt-line);border-radius:4px;
+place-items:center;font-size:16px;flex-direction:column;gap:4px;
+}
+.tt-nav-toggle i{display:block;width:16px;height:2px;background:var(--tt-ink);transition:transform .2s,opacity .2s}
+.tt-nav-toggle[aria-expanded="true"] i:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.tt-nav-toggle[aria-expanded="true"] i:nth-child(2){opacity:0}
+.tt-nav-toggle[aria-expanded="true"] i:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.tt-search-hint{
+font-size:12px;color:var(--tt-red);padding:0 clamp(14px,4vw,44px);
+max-height:0;overflow:hidden;transition:max-height .25s ease,padding .25s;
+background:#fdf3f3;border-bottom:0 solid #f3d6d9;
+}
+.tt-search-hint.is-open{max-height:40px;padding:8px clamp(14px,4vw,44px);border-bottom-width:1px}
+
+/* ====== 滚动锚点偏移 ====== */
+[id]{scroll-margin-top:calc(var(--tt-nav-h) + 44px)}
+
+/* ====== 容器 ====== */
+.tt-wrap{max-width:1200px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.tt-section{padding:clamp(44px,6vw,76px) 0}
+.tt-section--tint{background:#edeae3}
+.tt-section--dark{background:var(--tt-ink);color:#e8e6e0}
+
+.tt-sec-head{display:flex;flex-wrap:wrap;align-items:flex-end;gap:14px 26px;margin-bottom:32px;border-bottom:2px solid var(--tt-ink);padding-bottom:14px}
+.tt-sec-head h2{font-size:clamp(21px,2.6vw,29px);letter-spacing:.02em;line-height:1.3;font-weight:800}
+.tt-sec-head h2 em{font-style:normal;color:var(--tt-red)}
+.tt-sec-head p{font-size:13.5px;color:var(--tt-muted);max-width:560px;flex:1 1 240px}
+.tt-section--dark .tt-sec-head{border-bottom-color:#3a3f4c}
+.tt-section--dark .tt-sec-head p{color:#9aa1b0}
+.tt-sec-kicker{
+display:inline-block;font-size:11px;letter-spacing:.22em;color:var(--tt-red);
+font-weight:700;text-transform:uppercase;margin-bottom:6px;
+}
+
+/* ====== 首屏 ====== */
+.tt-hero{position:relative;overflow:hidden;background:#fff;border-bottom:1px solid var(--tt-line)}
+.tt-hero-grid{display:grid;grid-template-columns:6fr 4fr;gap:0}
+.tt-hero-main{padding:clamp(34px,5vw,62px) clamp(20px,4vw,48px) clamp(34px,5vw,56px) clamp(20px,4vw,44px)}
+.tt-hero-badge{
+display:inline-flex;align-items:center;gap:8px;
+font-size:11.5px;letter-spacing:.14em;font-weight:700;color:var(--tt-red);
+border:1px solid #f0ccd2;background:#fdf5f5;padding:4px 11px;border-radius:20px;margin-bottom:18px;
+}
+.tt-hero-badge i{width:6px;height:6px;border-radius:50%;background:var(--tt-red);animation:ttPulse 1.8s infinite}
+@keyframes ttPulse{0%,100%{opacity:1}50%{opacity:.3}}
+.tt-hero h1{font-size:clamp(30px,4.4vw,50px);line-height:1.12;letter-spacing:.01em;font-weight:900;margin-bottom:6px}
+.tt-hero h1 span{color:var(--tt-red)}
+.tt-hero-slogan{font-size:clamp(15px,1.7vw,18px);color:var(--tt-ink-2);font-weight:600;margin:12px 0 18px;letter-spacing:.03em}
+.tt-hero-slogan b{background:linear-gradient(transparent 62%,#fbd9a4 62%);padding:0 2px}
+.tt-hero-desc{font-size:14.5px;color:var(--tt-slate);max-width:600px;line-height:1.9}
+.tt-hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.tt-btn{
+display:inline-flex;align-items:center;gap:7px;
+font-size:14px;font-weight:600;padding:10px 20px;border-radius:var(--tt-radius);
+transition:transform .16s,box-shadow .2s,background .2s;
+}
+.tt-btn:active{transform:translateY(1px)}
+.tt-btn--primary{background:var(--tt-red);color:#fff;box-shadow:0 6px 18px rgba(200,16,46,.24)}
+.tt-btn--primary:hover{background:#a80d26;box-shadow:0 8px 22px rgba(200,16,46,.3)}
+.tt-btn--ghost{border:1.5px solid var(--tt-ink);color:var(--tt-ink)}
+.tt-btn--ghost:hover{background:var(--tt-ink);color:#fff}
+.tt-btn--light{border:1.5px solid #464c5a;color:#e8e6e0}
+.tt-btn--light:hover{background:#2b2f3a;border-color:#5b6272}
+.tt-hero-stats{display:flex;flex-wrap:wrap;gap:clamp(18px,3vw,40px);margin-top:34px;padding-top:22px;border-top:1px dashed #d7d3cb}
+.tt-hero-stat strong{font-size:clamp(22px,2.6vw,30px);font-weight:900;letter-spacing:-.01em;display:block;line-height:1.1;color:var(--tt-ink)}
+.tt-hero-stat strong i{font-style:normal;font-size:.55em;color:var(--tt-red);margin-left:2px;font-weight:700}
+.tt-hero-stat span{font-size:12px;color:var(--tt-muted);letter-spacing:.04em}
+
+.tt-hero-visual{position:relative;background:var(--tt-ink);min-height:320px;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(18px,3vw,30px);overflow:hidden}
+.tt-hero-visual::before{
+content:"";position:absolute;inset:0;
+background:
+radial-gradient(circle at 78% 18%,rgba(200,16,46,.55),transparent 46%),
+radial-gradient(circle at 20% 82%,rgba(240,168,40,.28),transparent 50%),
+repeating-linear-gradient(125deg,rgba(255,255,255,.035) 0 2px,transparent 2px 14px);
+}
+.tt-hero-caption{position:relative;z-index:2;color:#e8e6e0}
+.tt-hero-caption .tt-live{
+display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.14em;
+background:rgba(200,16,46,.9);padding:3px 10px;border-radius:2px;margin-bottom:12px;
+}
+.tt-hero-caption .tt-live b{width:6px;height:6px;border-radius:50%;background:#fff;animation:ttPulse 1.4s infinite}
+.tt-hero-caption h3{font-size:clamp(17px,2vw,21px);line-height:1.4;font-weight:800;max-width:340px}
+.tt-hero-caption p{font-size:12px;color:#a8afbd;margin-top:6px}
+.tt-hero-mini{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tt-hero-mini figure{position:relative;border:1px solid #313643;border-radius:3px;overflow:hidden;background:#1b1e26}
+.tt-hero-mini svg{display:block;width:100%;height:auto}
+.tt-hero-mini figcaption{font-size:10.5px;color:#b7bdc9;padding:4px 6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;background:#1b1e26}
+
+/* ====== 关键词解析长文 ====== */
+.tt-essay{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,50px);align-items:start}
+.tt-essay h3{font-size:19px;font-weight:800;margin-bottom:12px;letter-spacing:.02em}
+.tt-essay h3::before{content:"";display:inline-block;width:4px;height:16px;background:var(--tt-red);margin-right:9px;vertical-align:-2px;border-radius:2px}
+.tt-essay p{font-size:14.5px;color:var(--tt-slate);margin-bottom:14px;text-align:justify}
+.tt-essay strong{color:var(--tt-ink);font-weight:700}
+.tt-essay-note{
+border-left:3px solid var(--tt-amber);background:#fdf9f0;padding:14px 18px;
+font-size:13.5px;color:#5c5546;border-radius:0 var(--tt-radius) var(--tt-radius) 0;margin-top:6px;
+}
+.tt-essay-note b{color:var(--tt-ink)}
+
+/* ====== 焦点卡片 ====== */
+.tt-focus-grid{display:grid;grid-template-columns:1.35fr 1fr;gap:22px}
+.tt-focus-main{
+position:relative;border-radius:var(--tt-radius-lg);overflow:hidden;
+background:var(--tt-ink-2);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;
+min-height:340px;
+}
+.tt-focus-main .tt-cover{position:absolute;inset:0}
+.tt-focus-main .tt-cover svg{width:100%;height:100%;object-fit:cover}
+.tt-focus-main .tt-cover::after{
+content:"";position:absolute;inset:0;
+background:linear-gradient(180deg,rgba(20,22,28,0) 30%,rgba(20,22,28,.86) 100%);
+}
+.tt-focus-body{position:relative;z-index:2;padding:clamp(18px,3vw,30px)}
+.tt-tag-row{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.tt-tag{
+font-size:11px;font-weight:600;letter-spacing:.05em;padding:2.5px 9px;border-radius:20px;
+background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);color:#eee;
+backdrop-filter:blur(4px);
+}
+.tt-tag--red{background:var(--tt-red);border-color:var(--tt-red);color:#fff}
+.tt-tag--solid{background:#edeae3;border-color:#e0dcd3;color:var(--tt-ink-2)}
+.tt-focus-body h3{font-size:clamp(18px,2.2vw,24px);font-weight:800;line-height:1.36;margin-bottom:8px}
+.tt-focus-body p{font-size:13.5px;color:#c3c7d1;line-height:1.8}
+.tt-meta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;font-size:12px;color:#a4aab7;align-items:center}
+.tt-meta-row .tt-avatar-mini{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff;background:var(--tt-red)}
+.tt-focus-side{display:grid;grid-template-rows:repeat(2,1fr);gap:22px}
+.tt-focus-small{
+display:grid;grid-template-columns:116px 1fr;gap:0;background:#fff;border:1px solid var(--tt-line);
+border-radius:var(--tt-radius);overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s;
+}
+.tt-focus-small:hover{transform:translateY(-3px);box-shadow:var(--tt-shadow);border-color:#cfcbc2}
+.tt-focus-small .tt-thumb{position:relative;background:#1f232c;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.tt-focus-small .tt-thumb svg{width:100%;height:100%}
+.tt-focus-small .tt-thumb .tt-play{
+position:absolute;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.9);
+display:grid;place-items:center;
+}
+.tt-focus-small .tt-thumb .tt-play::before{content:"";border-left:8px solid var(--tt-ink);border-top:5px solid transparent;border-bottom:5px solid transparent;margin-left:2px}
+.tt-focus-small .tt-info{padding:12px 14px;display:flex;flex-direction:column;justify-content:center}
+.tt-focus-small .tt-info h4{font-size:14px;font-weight:700;line-height:1.45;margin-bottom:6px}
+.tt-focus-small .tt-info p{font-size:12px;color:var(--tt-muted);line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tt-focus-small .tt-info .tt-mini-meta{font-size:11.5px;color:#9a9fad;margin-top:8px}
+
+/* ====== 热门视频网格 ====== */
+.tt-feed-filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.tt-chip{
+font-size:12.5px;padding:5px 14px;border-radius:20px;border:1px solid #d6d2c9;color:var(--tt-slate);
+background:#faf9f6;transition:all .18s;font-weight:500;
+}
+.tt-chip:hover{border-color:var(--tt-red);color:var(--tt-red)}
+.tt-chip.is-on{background:var(--tt-ink);border-color:var(--tt-ink);color:#fff;font-weight:700}
+.tt-feed-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tt-vcard{
+background:#fff;border:1px solid var(--tt-line);border-radius:var(--tt-radius);
+overflow:hidden;display:flex;flex-direction:column;
+transition:transform .22s,box-shadow .22s,border-color .22s;
+}
+.tt-vcard:hover{transform:translateY(-4px);box-shadow:var(--tt-shadow);border-color:#c9c5bb}
+.tt-vcard-cover{position:relative;aspect-ratio:16/9;background:#1d2129;overflow:hidden}
+.tt-vcard-cover svg{width:100%;height:100%;display:block}
+.tt-vcard-cover .tt-cover-mask{
+position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 55%,rgba(0,0,0,.5) 100%);
+pointer-events:none;
+}
+.tt-vcard-cover .tt-corner-tag{
+position:absolute;top:9px;left:9px;font-size:10.5px;font-weight:700;letter-spacing:.05em;
+padding:2px 8px;border-radius:2px;background:rgba(20,22,28,.82);color:#f1efe9;
+}
+.tt-vcard-cover .tt-dur{
+position:absolute;bottom:9px;right:9px;font-size:11px;font-weight:600;
+background:rgba(20,22,28,.84);color:#fff;padding:1px 6px;border-radius:2px;
+}
+.tt-vcard-cover .tt-playbtn{
+position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.9);
+width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.92);
+display:grid;place-items:center;opacity:0;transition:opacity .2s,transform .2s;
+}
+.tt-vcard:hover .tt-playbtn{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.tt-playbtn::before{content:"";border-left:12px solid var(--tt-ink);border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+.tt-vcard-body{padding:14px 16px 12px;display:flex;flex-direction:column;flex:1}
+.tt-vcard-body h3{font-size:15px;font-weight:700;line-height:1.5;margin-bottom:7px}
+.tt-vcard-body h3:hover{color:var(--tt-red)}
+.tt-vcard-body p{font-size:12.5px;color:var(--tt-muted);line-height:1.7;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+.tt-vcard-foot{
+display:flex;align-items:center;gap:8px;margin-top:auto;font-size:12px;color:#8b91a0;
+padding-top:10px;border-top:1px dashed #e6e2da;
+}
+.tt-avatar{
+width:24px;height:24px;border-radius:50%;display:grid;place-items:center;
+font-size:11px;font-weight:800;color:#fff;flex:0 0 auto;
+}
+.tt-vcard-foot .tt-foot-num{margin-left:auto;display:flex;gap:10px}
+.tt-act{
+display:inline-flex;align-items:center;gap:3px;font-size:12px;color:#8b91a0;
+padding:2px 4px;border-radius:3px;transition:color .16s,background .16s;
+}
+.tt-act:hover{color:var(--tt-red);background:#fbf1f2}
+.tt-act.is-liked{color:var(--tt-red);font-weight:700}
+.tt-act.is-saved{color:var(--tt-amber);font-weight:700}
+
+/* ====== 专题 ====== */
+.tt-topic-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tt-topic{
+position:relative;border-radius:var(--tt-radius);overflow:hidden;min-height:200px;
+display:flex;flex-direction:column;justify-content:flex-end;color:#fff;
+border:1px solid #2e333e;
+}
+.tt-topic:nth-child(1){grid-column:span 2}
+.tt-topic .tt-topic-bg{position:absolute;inset:0}
+.tt-topic .tt-topic-bg svg{width:100%;height:100%}
+.tt-topic .tt-topic-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(200deg,rgba(20,22,28,.12),rgba(20,22,28,.88))}
+.tt-topic-body{position:relative;z-index:2;padding:20px 22px}
+.tt-topic-body .tt-status{
+display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.08em;
+padding:2px 8px;border-radius:2px;background:var(--tt-amber);color:#2b2415;margin-bottom:9px;
+}
+.tt-topic-body .tt-status--red{background:var(--tt-red);color:#fff}
+.tt-topic-body h3{font-size:17px;font-weight:800;line-height:1.4;margin-bottom:6px}
+.tt-topic-body p{font-size:12.5px;color:#c0c4cf;line-height:1.7;max-width:420px}
+.tt-topic-body .tt-topic-foot{margin-top:12px;font-size:11.5px;color:#9aa1b0;display:flex;gap:12px;flex-wrap:wrap}
+
+/* ====== 创作者矩阵 ====== */
+.tt-creators{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.tt-creator{
+background:#fff;border:1px solid var(--tt-line);border-radius:var(--tt-radius);
+padding:20px 18px;text-align:left;transition:transform .2s,box-shadow .2s;position:relative;
+}
+.tt-creator:hover{transform:translateY(-4px);box-shadow:var(--tt-shadow)}
+.tt-creator .tt-c-avatar{
+width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+font-size:19px;font-weight:900;color:#fff;margin-bottom:12px;letter-spacing:.02em;
+}
+.tt-creator h3{font-size:15px;font-weight:800;margin-bottom:2px}
+.tt-creator .tt-c-field{font-size:11.5px;color:var(--tt-red);font-weight:600;margin-bottom:8px}
+.tt-creator p{font-size:12.5px;color:var(--tt-muted);line-height:1.7;min-height:60px}
+.tt-creator .tt-c-stats{display:flex;gap:14px;margin-top:12px;padding-top:10px;border-top:1px dashed #e6e2da;font-size:11.5px;color:#8b91a0}
+.tt-creator .tt-c-stats b{color:var(--tt-ink);font-weight:800}
+.tt-creator .tt-c-btn{
+margin-top:12px;width:100%;font-size:12.5px;font-weight:600;padding:6px;border-radius:3px;
+border:1px solid #ddd9d0;color:var(--tt-ink-2);transition:all .18s;
+}
+.tt-creator .tt-c-btn:hover{background:var(--tt-ink);color:#fff;border-color:var(--tt-ink)}
+
+/* ====== 故事随笔 ====== */
+.tt-story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.tt-story{
+background:#fbfaf7;border:1px solid var(--tt-line);border-radius:var(--tt-radius);
+padding:24px 22px;display:flex;flex-direction:column;position:relative;
+}
+.tt-story::before{
+content:"“";position:absolute;top:2px;right:16px;font-size:56px;line-height:1;
+color:#e7e3da;font-family:Georgia,serif;
+}
+.tt-story h3{font-size:15.5px;font-weight:800;margin-bottom:10px;line-height:1.5;position:relative;z-index:1}
+.tt-story p{font-size:13px;color:var(--tt-slate);line-height:1.85;text-align:justify;flex:1;position:relative;z-index:1}
+.tt-story .tt-story-by{margin-top:14px;font-size:11.5px;color:#9a9fad;display:flex;align-items:center;gap:7px}
+
+/* ====== 数据榜单 ====== */
+.tt-rank-wrap{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.tt-rank{
+background:#fff;border:1px solid var(--tt-line);border-radius:var(--tt-radius);padding:20px 22px;
+}
+.tt-rank h3{font-size:15px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.tt-rank h3 span{
+font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--tt-red);
+border:1px solid #f0ccd2;background:#fdf5f5;padding:1px 7px;border-radius:2px;
+}
+.tt-rank-list{list-style:none}
+.tt-rank-list li{
+display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:center;
+padding:9px 0;border-bottom:1px dashed #eae6de;font-size:13px;
+}
+.tt-rank-list li:last-child{border-bottom:none}
+.tt-rank-list .tt-rk{
+font-size:12px;font-weight:900;color:#a8a39a;font-variant-numeric:tabular-nums;
+}
+.tt-rank-list li:nth-child(1) .tt-rk{color:var(--tt-red)}
+.tt-rank-list li:nth-child(2) .tt-rk{color:#e08b1e}
+.tt-rank-list li:nth-child(3) .tt-rk{color:#b08046}
+.tt-rank-list .tt-rk-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}
+.tt-rank-list .tt-rk-title:hover{color:var(--tt-red)}
+.tt-rank-list .tt-rk-val{font-size:11.5px;color:#9a9fad;font-variant-numeric:tabular-nums}
+
+/* ====== 用户评价 ====== */
+.tt-voice-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.tt-voice{
+background:#fff;border:1px solid var(--tt-line);border-radius:var(--tt-radius);
+padding:18px 18px 16px;display:flex;flex-direction:column;
+border-top:3px solid var(--tt-red);
+}
+.tt-voice:nth-child(3n+2){border-top-color:var(--tt-amber)}
+.tt-voice:nth-child(3n){border-top-color:#3f6a8a}
+.tt-voice-top{display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.tt-voice-top .tt-avatar{width:28px;height:28px;font-size:12px}
+.tt-voice-top b{font-size:13px;font-weight:700;display:block;line-height:1.3}
+.tt-voice-top small{font-size:11px;color:#9a9fad}
+.tt-voice p{font-size:13px;color:var(--tt-slate);line-height:1.8;flex:1}
+.tt-voice .tt-voice-stars{color:#e0a02a;font-size:12px;letter-spacing:2px;margin-top:10px}
+
+/* ====== 企业动态 ====== */
+.tt-news-list{display:flex;flex-direction:column;gap:0}
+.tt-news-item{
+display:grid;grid-template-columns:96px 1fr auto;gap:18px;align-items:center;
+padding:16px 4px;border-bottom:1px solid #eae6de;transition:background .18s;
+}
+.tt-news-item:hover{background:#faf8f4}
+.tt-news-date{
+font-size:11.5px;color:var(--tt-muted);font-variant-numeric:tabular-nums;letter-spacing:.03em;
+}
+.tt-news-item h4{font-size:14.5px;font-weight:700;line-height:1.5;margin-bottom:2px}
+.tt-news-item p{font-size:12px;color:#9a9fad;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tt-news-type{
+font-size:10.5px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:2px;
+background:#f0eee7;color:#6d675c;white-space:nowrap;
+}
+.tt-news-type--new{background:#fdecee;color:var(--tt-red)}
+
+/* ====== 合作品牌墙 ====== */
+.tt-partners{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.tt-partner{
+height:64px;border:1px solid var(--tt-line);border-radius:var(--tt-radius);
+display:grid;place-items:center;background:#fff;
+font-size:12.5px;font-weight:700;letter-spacing:.05em;color:#7a756b;
+transition:all .2s;
+}
+.tt-partner:hover{border-color:var(--tt-red);color:var(--tt-red);transform:translateY(-2px)}
+
+/* ====== FAQ ====== */
+.tt-faq{max-width:860px;margin:0 auto}
+.tt-faq details{
+background:#fff;border:1px solid var(--tt-line);border-radius:var(--tt-radius);
+margin-bottom:10px;overflow:hidden;
+}
+.tt-faq details[open]{border-color:#cfcbc2;box-shadow:0 6px 18px rgba(20,22,28,.05)}
+.tt-faq summary{
+list-style:none;cursor:pointer;padding:15px 20px;font-size:14.5px;font-weight:700;
+display:flex;align-items:center;justify-content:space-between;gap:14px;
+transition:background .18s;
+}
+.tt-faq summary::-webkit-details-marker{display:none}
+.tt-faq summary:hover{background:#faf8f4}
+.tt-faq summary::after{
+content:"+";font-size:19px;font-weight:400;color:var(--tt-red);line-height:1;flex:0 0 auto;
+}
+.tt-faq details[open] summary::after{content:"−"}
+.tt-faq details p{padding:0 20px 17px;font-size:13.5px;color:var(--tt-slate);line-height:1.85}
+
+/* ====== 联系/投稿 ====== */
+.tt-contact{
+display:grid;grid-template-columns:1.2fr 1fr;gap:0;
+border:1px solid #313643;border-radius:var(--tt-radius-lg);overflow:hidden;background:#1a1d25;
+}
+.tt-contact-info{padding:clamp(24px,4vw,42px)}
+.tt-contact-info h2{font-size:clamp(20px,2.6vw,26px);font-weight:800;color:#fff;margin-bottom:10px}
+.tt-contact-info h2 em{font-style:normal;color:var(--tt-amber)}
+.tt-contact-info p{font-size:13.5px;color:#a8afbd;line-height:1.85;margin-bottom:22px}
+.tt-contact-rows{display:flex;flex-direction:column;gap:12px}
+.tt-contact-row{display:flex;gap:12px;font-size:13px;color:#c8ccd5;align-items:flex-start}
+.tt-contact-row b{
+flex:0 0 62px;color:#7f8797;font-weight:600;font-size:12px;letter-spacing:.04em;padding-top:1px;
+}
+.tt-contact-form{padding:clamp(24px,4vw,42px);background:#20242e;border-left:1px solid #313643}
+.tt-contact-form h3{font-size:15px;font-weight:800;color:#fff;margin-bottom:14px}
+.tt-form-field{margin-bottom:12px}
+.tt-form-field label{display:block;font-size:11.5px;color:#8d94a2;margin-bottom:4px;letter-spacing:.04em}
+.tt-form-field input,.tt-form-field textarea{
+width:100%;background:#171a21;border:1px solid #343a47;border-radius:3px;
+padding:8px 11px;font-size:13px;color:#e8e6e0;font-family:inherit;outline:none;
+transition:border-color .18s;
+}
+.tt-form-field input:focus,.tt-form-field textarea:focus{border-color:var(--tt-red-soft)}
+.tt-form-field textarea{resize:vertical;min-height:64px}
+.tt-form-submit{
+width:100%;margin-top:4px;background:var(--tt-red);color:#fff;font-size:13.5px;
+font-weight:700;padding:9px;border-radius:3px;transition:background .2s;
+}
+.tt-form-submit:hover{background:#a80d26}
+.tt-form-msg{font-size:12px;color:var(--tt-amber);margin-top:8px;min-height:16px}
+
+/* ====== 页脚 ====== */
+.tt-footer{background:var(--tt-ink);color:#9aa1b0;padding:clamp(38px,5vw,58px) 0 0;font-size:13px}
+.tt-footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:30px;padding-bottom:34px}
+.tt-footer h4{color:#e8e6e0;font-size:13.5px;font-weight:800;margin-bottom:12px;letter-spacing:.04em}
+.tt-footer-brand .tt-brand{margin-bottom:12px}
+.tt-footer-brand .tt-brand-name{color:#fff}
+.tt-footer-brand .tt-brand-sub{color:#6f7686}
+.tt-footer-brand p{font-size:12.5px;line-height:1.85;max-width:320px;color:#8b92a2}
+.tt-footer-links{display:flex;flex-direction:column;gap:7px}
+.tt-footer-links a{font-size:12.5px;color:#9aa1b0;transition:color .16s}
+.tt-footer-links a:hover{color:#fff}
+.tt-footer-bottom{
+border-top:1px solid #2a2e38;padding:16px 0;display:flex;flex-wrap:wrap;gap:10px 24px;
+justify-content:space-between;font-size:11.5px;color:#6f7686;
+}
+.tt-footer-bottom a{color:#8b92a2}
+.tt-footer-bottom a:hover{color:#fff}
+
+/* ====== 回到顶部 & Toast ====== */
+.tt-backtop{
+position:fixed;right:22px;bottom:26px;z-index:180;
+width:42px;height:42px;border-radius:50%;background:var(--tt-ink);color:#fff;
+display:grid;place-items:center;font-size:16px;box-shadow:0 8px 20px rgba(20,22,28,.28);
+opacity:0;pointer-events:none;transform:translateY(10px);
+transition:opacity .25s,transform .25s,background .2s;
+}
+.tt-backtop.is-show{opacity:1;pointer-events:auto;transform:translateY(0)}
+.tt-backtop:hover{background:var(--tt-red)}
+.tt-toast{
+position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);z-index:400;
+background:var(--tt-ink);color:#f1efe9;font-size:13px;padding:9px 20px;border-radius:22px;
+box-shadow:0 10px 28px rgba(20,22,28,.35);
+opacity:0;pointer-events:none;transition:opacity .25s,transform .25s;
+max-width:80vw;text-align:center;
+}
+.tt-toast.is-show{opacity:1;transform:translate(-50%,0)}
+
+/* ====== 弹窗 ====== */
+.tt-modal-mask{
+position:fixed;inset:0;background:rgba(20,22,28,.55);z-index:300;
+display:flex;align-items:center;justify-content:center;padding:18px;
+opacity:0;pointer-events:none;transition:opacity .22s;
+}
+.tt-modal-mask.is-show{opacity:1;pointer-events:auto}
+.tt-modal{
+background:#fff;border-radius:var(--tt-radius-lg);max-width:520px;width:100%;
+max-height:86vh;overflow:auto;padding:26px 26px 22px;
+transform:translateY(14px);transition:transform .22s;position:relative;
+}
+.tt-modal-mask.is-show .tt-modal{transform:translateY(0)}
+.tt-modal-close{
+position:absolute;top:12px;right:14px;font-size:20px;color:#9a9fad;line-height:1;
+padding:4px;transition:color .16s;
+}
+.tt-modal-close:hover{color:var(--tt-red)}
+.tt-modal h3{font-size:18px;font-weight:800;margin-bottom:6px;padding-right:24px}
+.tt-modal .tt-modal-sub{font-size:12.5px;color:var(--tt-muted);margin-bottom:16px}
+.tt-modal p{font-size:13.5px;color:var(--tt-slate);line-height:1.85;margin-bottom:12px}
+.tt-modal .tt-modal-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.tt-modal .tt-modal-foot{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+.tt-modal-code{
+background:#f5f4f1;border:1px dashed #d7d3cb;border-radius:3px;padding:8px 12px;
+font-size:12.5px;color:#5c5546;word-break:break-all;margin:10px 0;font-family:ui-monospace,Menlo,monospace;
+}
+.tt-share-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
+.tt-share-grid button{
+border:1px solid var(--tt-line);border-radius:4px;padding:10px 6px;font-size:12.5px;font-weight:600;
+color:var(--tt-ink-2);transition:all .18s;background:#faf9f6;
+}
+.tt-share-grid button:hover{border-color:var(--tt-red);color:var(--tt-red);background:#fff}
+
+/* ====== 响应式 ====== */
+@media (max-width:1080px){
+.tt-feed-grid{grid-template-columns:repeat(2,1fr)}
+.tt-creators{grid-template-columns:repeat(2,1fr)}
+.tt-topic-grid{grid-template-columns:repeat(2,1fr)}
+.tt-topic:nth-child(1){grid-column:span 2}
+.tt-partners{grid-template-columns:repeat(3,1fr)}
+.tt-footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:900px){
+.tt-hero-grid{grid-template-columns:1fr}
+.tt-hero-visual{min-height:260px}
+.tt-essay{grid-template-columns:1fr}
+.tt-focus-grid{grid-template-columns:1fr}
+.tt-focus-side{grid-template-rows:auto auto}
+.tt-voice-grid{grid-template-columns:repeat(2,1fr)}
+.tt-rank-wrap{grid-template-columns:1fr}
+.tt-story-grid{grid-template-columns:1fr}
+.tt-contact{grid-template-columns:1fr}
+.tt-contact-form{border-left:none;border-top:1px solid #313643}
+}
+@media (max-width:760px){
+.tt-main-nav{
+display:none;position:absolute;left:0;right:0;top:100%;
+background:#fff;flex-direction:column;gap:0;padding:8px 14px 14px;
+border-bottom:1px solid var(--tt-line);box-shadow:0 14px 26px rgba(20,22,28,.12);
+}
+.tt-main-nav.is-open{display:flex}
+.tt-main-nav a{padding:11px 8px;border-bottom:1px solid #f0eee9;width:100%;border-radius:0}
+.tt-main-nav a.is-active::after{display:none}
+.tt-nav-toggle{display:flex}
+.tt-site-head{position:relative}
+.tt-search input{width:96px}
+.tt-feed-grid{grid-template-columns:1fr}
+.tt-creators{grid-template-columns:1fr}
+.tt-topic-grid{grid-template-columns:1fr}
+.tt-topic:nth-child(1){grid-column:span 1}
+.tt-voice-grid{grid-template-columns:1fr}
+.tt-partners{grid-template-columns:repeat(2,1fr)}
+.tt-news-item{grid-template-columns:1fr auto;gap:6px 12px}
+.tt-news-item p{grid-column:1/-1;white-space:normal}
+.tt-footer-grid{grid-template-columns:1fr}
+.tt-hero-stats{gap:20px}
+.tt-notice-bar{font-size:12px}
+.tt-notice-bar .tt-notice-track{display:none}
+.tt-notice-bar{justify-content:space-between}
+}
+@media (prefers-reduced-motion:reduce){
+*{animation-duration:.001ms !important;transition-duration:.001ms !important}
+html{scroll-behavior:auto}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- 吸顶容器：公告条 + 页头 -->
+<div class="tt-sticky-shell">
+  <div class="tt-notice-bar" role="region" aria-label="平台公告">
+    <span class="tt-notice-tag">公告</span>
+    <div class="tt-notice-track">
+      <span>11月19日更新：<b>「舆情显微镜」第 12 期</b>上线，聚焦网络爆料核验流程</span>
+      <span>新专题<b>《网红黑料背后：一条内容的生命周期》</b>开放阅读</span>
+      <span>创作者责任公约 <b>2.0</b> 发布，新增核验与纠错条款</span>
+    </div>
+    <a class="tt-notice-link" href="#tt-news">查看全部动态 →</a>
+  </div>
+
+  <header class="tt-site-head">
+    <a class="tt-brand" href="#tt-top" aria-label="返回首页">
+      <span class="tt-brand-mark" aria-hidden="true"></span>
+      <span class="tt-brand-text">
+        <span class="tt-brand-name">今日头条网曝</span>
+        <span class="tt-brand-sub">SCOOP · BRAND</span>
+      </span>
+    </a>
+    <nav class="tt-main-nav" id="tt-nav" aria-label="主导航">
+      <a href="#tt-top" class="is-active">首页</a>
+      <a href="#tt-focus">焦点内容</a>
+      <a href="#tt-feed">内容流</a>
+      <a href="#tt-topics">专题企划</a>
+      <a href="#tt-creators">创作者</a>
+      <a href="#tt-news">企业动态</a>
+      <a href="#tt-faq">帮助中心</a>
+      <a href="#tt-contact">联系我们</a>
+    </nav>
+    <div class="tt-head-tools">
+      <form class="tt-search" id="tt-search-form" role="search" onsubmit="return false;">
+        <input type="search" id="tt-search-input" placeholder="搜索内容或创作者" aria-label="搜索内容">
+        <button type="submit" id="tt-search-btn" aria-label="搜索">🔍</button>
+      </form>
+      <button class="tt-nav-toggle" id="tt-nav-toggle" aria-expanded="false" aria-controls="tt-nav" aria-label="展开导航菜单">
+        <i></i><i></i><i></i>
+      </button>
+    </div>
+  </header>
+  <div class="tt-search-hint" id="tt-search-hint" role="status" aria-live="polite"></div>
+</div>
+
+<main id="tt-top">
+
+  <!-- ====== 首屏 ====== -->
+  <section class="tt-hero" aria-labelledby="tt-hero-title">
+    <div class="tt-hero-grid">
+      <div class="tt-hero-main">
+        <span class="tt-hero-badge"><i></i>品牌官网 · 官方发布</span>
+        <h1 id="tt-hero-title">今日头条网曝 <span>网红黑料</span></h1>
+        <p class="tt-hero-slogan">把爆料放回<b>证据的坐标</b>里，让内容生态拥有可被核验的公共尺度。</p>
+        <p class="tt-hero-desc">
+          我们是深耕网络舆情观察与内容治理领域的垂直品牌平台，以“今日头条网曝 网红黑料”为核心议题，持续记录爆料传播、事实核验与当事人回应的完整链条。作为企业级内容门户，官网坚持原创、正版、高清的采编标准，为创作者、机构与用户搭建值得信赖的内容生态，用专业与匠心回应每一次公共讨论，以真实、温暖而有力量的影像陪伴每一位用户。
+        </p>
+        <div class="tt-hero-actions">
+          <a class="tt-btn tt-btn--primary" href="#tt-feed">进入内容流</a>
+          <a class="tt-btn tt-btn--ghost" href="#tt-topics">浏览专题企划</a>
+          <button class="tt-btn tt-btn--ghost" type="button" data-tt-open="submit">投稿／报料</button>
+        </div>
+        <div class="tt-hero-stats">
+          <div class="tt-hero-stat"><strong data-tt-count="12680">0</strong><span>累计原创内容条目</span></div>
+          <div class="tt-hero-stat"><strong data-tt-count="486">0</strong><span>入驻创作者与机构</span></div>
+          <div class="tt-hero-stat"><strong data-tt-count="96">0<i>%</i></strong><span>爆料线索核验完成率</span></div>
+        </div>
+      </div>
+      <aside class="tt-hero-visual" aria-label="焦点影像">
+        <div class="tt-hero-caption">
+          <span class="tt-live"><b></b>现场直击</span>
+          <h3>一条“黑料”的 72 小时：从匿名投稿到公开回应</h3>
+          <p>本期焦点 · 舆情显微镜 · 11月19日发布</p>
+        </div>
+        <div class="tt-hero-mini">
+          <figure>
+            <svg viewBox="0 0 160 90" role="img" aria-label="爆料线索核验流程图封面"><rect width="160" height="90" fill="#1f232c"/><circle cx="120" cy="26" r="26" fill="#c8102e" opacity=".65"/><path d="M20 64h50v4H20zM20 52h80v4H20zM20 40h40v4H20z" fill="#f0a828" opacity=".9"/><circle cx="118" cy="62" r="12" fill="none" stroke="#e8e6e0" stroke-width="2"/><path d="M126 70l10 10" stroke="#e8e6e0" stroke-width="2"/></svg>
+            <figcaption>核验流程图</figcaption>
+          </figure>
+          <figure>
+            <svg viewBox="0 0 160 90" role="img" aria-label="当事人回应现场记录封面"><rect width="160" height="90" fill="#252a35"/><path d="M0 66l38-26 32 18 30-22 60 30v24H0z" fill="#3f6a8a" opacity=".7"/><circle cx="112" cy="30" r="14" fill="#e04654"/><path d="M100 58h34v4h-34z" fill="#e8e6e0"/></svg>
+            <figcaption>回应现场</figcaption>
+          </figure>
+          <figure>
+            <svg viewBox="0 0 160 90" role="img" aria-label="数据取证专题封面"><rect width="160" height="90" fill="#1a1d25"/><g fill="#f0a828"><rect x="20" y="52" width="12" height="24"/><rect x="42" y="40" width="12" height="36"/><rect x="64" y="30" width="12" height="46"/><rect x="86" y="46" width="12" height="30"/></g><path d="M18 24h124v3H18z" fill="#4b5464"/><circle cx="130" cy="24" r="6" fill="#c8102e"/></svg>
+            <figcaption>数据取证</figcaption>
+          </figure>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ====== 关键词解析长文 ====== -->
+  <section class="tt-section" aria-labelledby="tt-essay-title">
+    <div class="tt-wrap">
+      <div class="tt-sec-head">
+        <h2 id="tt-essay-title">关键词解析：<em>今日头条网曝 网红黑料</em> 的内容定位</h2>
+        <p>一个关于爆料、核验与公共讨论的品牌坐标，包括它为何存在、如何运作，以及我们坚持的品质标准。</p>
+      </div>
+      <div class="tt-essay">
+        <div>
+          <h3>一、我们如何理解这组关键词</h3>
+          <p>“今日头条网曝 网红黑料”在中文互联网里，几乎是一个自带流量与争议的短语。它既指涉爆料行为的即时性，也指涉内容生态中真假难辨的灰色地带。作为一家持续运营的视频品牌官方网站，我们不回避这组词，而是把它当作一个需要被认真拆解的公共议题：爆料从何而来、证据是否完整、当事人是否获得回应机会、平台如何在传播效率与责任之间取得平衡。</p>
+          <p>因此，这个官网并非猎奇内容的集散地，而是一个以<strong>核验、记录与解释</strong>为核心的垂直领域内容平台。我们用视频、图文与时间线，把一次爆料拆成可追溯的片段：线索来源、时间节点、证据类型、多方回应、后续修正。我们相信，只有把“网红黑料”放回证据的坐标里，讨论才不至于滑向情绪。企业做内容，本质上是在做信任；而信任来自可复现的流程，而非更响亮的标题。</p>
+          <p>在内容生态的视角下，这组关键词还牵出一个更普遍的问题：当每个人都能成为发布者，谁来承担核实成本？我们的答案是建立一套面向创作者开放的采编规范——<strong>先核验、后发布；有疑点、即标注；有修正、必公开</strong>。这套规范既是官网的编辑底线，也是我们与四百余位创作者共同遵守的行业约定。</p>
+          <div class="tt-essay-note"><b>品牌主张：</b>不制造黑料，也不消费黑料；我们只做爆料与事实之间的那道“翻译”。</div>
+        </div>
+        <div>
+          <h3>二、内容方向与生产能力</h3>
+          <p>围绕这组关键词，官网的内容生产主要落在五个方向。第一是<strong>舆情观察</strong>：以周为单位梳理网曝事件的传播路径，呈现它如何在数小时内被放大、被误读、被反转。第二是<strong>核验教程</strong>：把取证、比对、溯源的方法做成可复用的攻略，让普通用户也能掌握基本的辨别能力。第三是<strong>人物访谈</strong>：邀请当事人、经纪人、内容审核从业者与法律顾问，讲述爆料另一侧的日常。第四是<strong>品牌故事</strong>：记录我们如何从一个小型采编团队成长为具备完整审核链条的内容企业。第五是<strong>社区共创</strong>：通过话题征集、投票与投稿，让用户参与到议题设置中来。</p>
+          <p>生产能力上，官网采用“编辑中心 + 创作者网络 + 外部顾问”的三层结构。编辑中心负责选题把关与终审，创作者网络提供一线观察与影像素材，外部顾问覆盖法律、心理与传播学视角。所有原创视频均以高清规格交付，正版素材授权可查，重要内容附带完整的时间线与引用清单。我们并不追求最快，而是追求在事实清晰之后再发声——这既是专业，也是一种对用户负责的态度。</p>
+          <p>平台的上线内容分为“已核验”“核验中”“单方陈述”三类标识，用户可以在卡片角落直接看到内容所处阶段。这样的设计让内容生态保持透明，也让创作者在追逐热点的同时保有一份克制。我们始终认为，一个行业的成熟度，不体现在它多会放大争议，而体现在它多会处理争议。</p>
+          <h3>三、面向未来的社区与责任</h3>
+          <p>未来一年，官网将把重点放在社区治理与创作者成长上：推出面向新人的核验训练营，建立公开的纠错通道，定期发布内容生态透明度报告。我们希望通过这些动作，让“今日头条网曝 网红黑料”逐渐从一个标签，变成一套可讨论、可学习、可监督的公共方法。这是品牌的长期主义，也是我们愿意承担的社会责任。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 焦点内容 ====== -->
+  <section class="tt-section tt-section--tint" id="tt-focus" aria-labelledby="tt-focus-title">
+    <div class="tt-wrap">
+      <div class="tt-sec-head">
+        <h2 id="tt-focus-title">焦点内容 <em>·</em> 本期主推</h2>
+        <p>两则深度主推与四则短观察，来自编辑中心本月重点策划，全部经过事实核验流程。</p>
+      </div>
+      <div class="tt-focus-grid">
+        <article class="tt-focus-main">
+          <div class="tt-cover">
+            <svg viewBox="0 0 720 420" preserveAspectRatio="xMidYMid slice" role="img" aria-label="爆料核验流程深度报道封面图">
+              <rect width="720" height="420" fill="#14161c"/>
+              <circle cx="590" cy="90" r="150" fill="#c8102e" opacity=".42"/>
+              <circle cx="120" cy="330" r="180" fill="#f0a828" opacity=".14"/>
+              <g stroke="#e8e6e0" stroke-width="1.5" opacity=".5">
+                <path d="M60 300h600M60 240h600M60 180h600"/>
+              </g>
+              <g fill="#ffffff" opacity=".92">
+                <rect x="80" y="272" width="120" height="8" rx="2"/>
+                <rect x="80" y="212" width="210" height="8" rx="2"/>
+                <rect x="80" y="152" width="90" height="8" rx="2"/>
+              </g>
+              <circle cx="470" cy="200" r="64" fill="none" stroke="#e04654" stroke-width="6" opacity=".85"/>
+              <path d="M520 250l70 70" stroke="#e04654" stroke-width="8" stroke-linecap="round"/>
+              <g fill="#f0a828"><rect x="330" y="300" width="26" height="24" rx="3"/><rect x="366" y="286" width="26" height="38" rx="3"/><rect x="402" y="272" width="26" height="52" rx="3"/></g>
+            </svg>
+          </div>
+          <div class="tt-focus-body">
+            <div class="tt-tag-row">
+              <span class="tt-tag tt-tag--red">深度主推</span>
+              <span class="tt-tag">舆情观察</span>
+              <span class="tt-tag">已核验</span>
+            </div>
+            <h3>72 小时时间线：一次网红黑料爆料是如何被逐条核验的</h3>
+            <p>从匿名私信到公开回应，我们逐帧还原了传播链上的 11 个关键节点，并访谈了三位内容审核从业者，讲清楚“删帖”之前到底发生了什么。</p>
+            <div class="tt-meta-row">
+              <span class="tt-avatar-mini">核</span>
+              <span>编辑中心 · 舆情显微镜</span>
+              <span>11月19日</span>
+              <span>42 分钟</span>
+            </div>
+          </div>
+        </article>
+        <div class="tt-focus-side">
+          <article class="tt-focus-small">
+            <div class="tt-thumb">
+              <svg viewBox="0 0 160 90" role="img" aria-label="爆料线索来源示意图"><rect width="160" height="90" fill="#2a3040"/><circle cx="46" cy="45" r="17" fill="#e04654"/><circle cx="112" cy="30" r="11" fill="#f0a828"/><circle cx="118" cy="66" r="8" fill="#e8e6e0" opacity=".7"/><path d="M60 45h40M105 36l-8 8M112 58l-4-8" stroke="#e8e6e0" stroke-width="1.6" fill="none"/></svg>
+              <span class="tt-play" aria-hidden="true"></span>
+            </div>
+            <div class="tt-info">
+              <h4>谁在提供“黑料”？三类常见信源的行为差异</h4>
+              <p>匿名投稿、同行爆料与商业竞争，动机不同，核验成本也完全不同。</p>
+              <div class="tt-mini-meta">舆情方法论 · 11月18日</div>
+            </div>
+          </article>
+          <article class="tt-focus-small">
+            <div class="tt-thumb">
+              <svg viewBox="0 0 160 90" role="img" aria-label="当事人公开回应画面示意图"><rect width="160" height="90" fill="#20242e"/><rect x="18" y="20" width="52" height="50" rx="4" fill="#3f6a8a"/><circle cx="44" cy="40" r="11" fill="#e8e6e0"/><path d="M30 66c2-10 26-10 28 0z" fill="#e8e6e0"/><path d="M86 30h54v4H86zM86 44h40v4H86zM86 58h48v4H86z" fill="#f0a828" opacity=".85"/></svg>
+              <span class="tt-play" aria-hidden="true"></span>
+            </div>
+            <div class="tt-info">
+              <h4>回应之后：当事人、经纪人与平台的 45 分钟对话</h4>
+              <p>一次公开回应的背后，是三方对“说多少、怎么说、何时说”的反复权衡。</p>
+              <div class="tt-mini-meta">人物访谈 · 11月17日</div>
+            </div>
+          </article>
+          <article class="tt-focus-small">
+            <div class="tt-thumb">
+              <svg viewBox="0 0 160 90" role="img" aria-label="内容生态数据看板示意图"><rect width="160" height="90" fill="#1d2129"/><rect x="16" y="16" width="128" height="58" rx="4" fill="#262a34"/><path d="M26 62l22-18 20 12 24-24 22 14 18-16" stroke="#c8102e" stroke-width="2.4" fill="none"/><circle cx="132" cy="30" r="4" fill="#f0a828"/></svg>
+              <span class="tt-play" aria-hidden="true"></span>
+            </div>
+            <div class="tt-info">
+              <h4>透明度报告：我们如何处理了 1,284 条可疑线索</h4>
+              <p>从初审到驳回，每一个环节的通过率与平均耗时都在这份报告里。</p>
+              <div class="tt-mini-meta">企业动态 · 11月16日</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 内容流 ====== -->
+  <section class="tt-section" id="tt-feed" aria-labelledby="tt-feed-title">
+    <div class="tt-wrap">
+      <div class="tt-sec-head">
+        <h2 id="tt-feed-title">内容流 <em>·</em> 原创精品持续更新</h2>
+        <p>按主题筛选内容流，卡片标注核验状态。喜欢就点赞，想留着看就收藏，分享给需要的人。</p>
+      </div>
+      <div class="tt-feed-filter" id="tt-feed-filter" role="group" aria-label="主题筛选">
+        <button class="tt-chip is-on" data-tt-chip="all">全部</button>
+        <button class="tt-chip" data-tt-chip="观察">舆情观察</button>
+        <button class="tt-chip" data-tt-chip="教程">核验教程</button>
+        <button class="tt-chip" data-tt-chip="访谈">人物访谈</button>
+        <button class="tt-chip" data-tt-chip="品牌">品牌故事</button>
+        <button class="tt-chip" data-tt-chip="社区">社区共创</button>
+      </div>
+      <div class="tt-feed-grid" id="tt-feed-grid">
+
+        <article class="tt-vcard" data-tt-cat="观察">
+          <div class="tt-vcard-cover">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="匿名爆料传播链观察封面"><rect width="320" height="180" fill="#1a1d25"/><circle cx="88" cy="70" r="40" fill="#c8102e" opacity=".5"/><circle cx="220" cy="118" r="54" fill="#3f6a8a" opacity=".42"/><g stroke="#e8e6e0" stroke-width="1.4" opacity=".8" fill="none"><path d="M60 130h90M60 110h150M60 90h60"/></g><circle cx="244" cy="50" r="9" fill="#f0a828"/></svg>
+            <span class="tt-cover-mask"></span>
+            <span class="tt-corner-tag">已核验</span>
+            <span class="tt-playbtn" aria-hidden="true"></span>
+            <span class="tt-dur">18:42</span>
+          </div>
+          <div class="tt-vcard-body">
+            <div class="tt-tag-row"><span class="tt-tag tt-tag--solid">舆情观察</span><span class="tt-tag tt-tag--solid">时间线</span></div>
+            <h3>从一条私信到全网热搜：爆料传播链上的 11 个节点</h3>
+            <p>我们复盘了一次典型网曝事件的扩散节奏，发现真正决定走向的往往不是第一条内容，而是第三天的“补充材料”。</p>
+            <div class="tt-vcard-foot">
+              <span class="tt-avatar" style="background:#c8102e">核</span>
+              <span>舆情显微镜</span>
+              <span class="tt-foot-num">
+                <button class="tt-act" data-tt-like aria-label="点赞">👍 <b>1284</b></button>
+                <button class="tt-act" data-tt-save aria-label="收藏">☆ 收藏</button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tt-vcard" data-tt-cat="教程">
+          <div class="tt-vcard-cover">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="截图取证核验教程封面"><rect width="320" height="180" fill="#20242e"/><rect x="46" y="30" width="150" height="104" rx="6" fill="#2d3340" stroke="#4b5464"/><path d="M62 56h110M62 76h84M62 96h110" stroke="#e8e6e0" stroke-width="3" opacity=".55"/><circle cx="236" cy="108" r="34" fill="none" stroke="#f0a828" stroke-width="5"/><path d="M262 134l26 26" stroke="#f0a828" stroke-width="6" stroke-linecap="round"/></svg>
+            <span class="tt-cover-mask"></span>
+            <span class="tt-corner-tag">教程干货</span>
+            <span class="tt-playbtn" aria-hidden="true"></span>
+            <span class="tt-dur">12:06</span>
+          </div>
+          <div class="tt-vcard-body">
+            <div class="tt-tag-row"><span class="tt-tag tt-tag--solid">核验教程</span><span class="tt-tag tt-tag--solid">实用技巧</span></div>
+            <h3>三分钟学会截图溯源：普通人也能用的核验基本功</h3>
+            <p>查元数据、比对光影、反查首发时间，三个动作让你在转发前多一层判断，内容生态的改善从每一次转发开始。</p>
+            <div class="tt-vcard-foot">
+              <span class="tt-avatar" style="background:#3f6a8a">验</span>
+              <span>核验小组</span>
+              <span class="tt-foot-num">
+                <button class="tt-act" data-tt-like aria-label="点赞">👍 <b>962</b></button>
+                <button class="tt-act" data-tt-save aria-label="收藏">☆ 收藏</button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tt-vcard" data-tt-cat="访谈">
+          <div class="tt-vcard-cover">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="内容审核从业者访谈封面"><rect width="320" height="180" fill="#252a35"/><circle cx="96" cy="84" r="38" fill="#e04654" opacity=".85"/><circle cx="96" cy="74" r="13" fill="#e8e6e0"/><path d="M72 110c4-16 44-16 48 0z" fill="#e8e6e0"/><path d="M168 56h96v5h-96zM168 78h72v5h-72zM168 100h86v5h-86z" fill="#f0a828" opacity=".85"/></svg>
+            <span class="tt-cover-mask"></span>
+            <span class="tt-corner-tag">人物访谈</span>
+            <span class="tt-playbtn" aria-hidden="true"></span>
+            <span class="tt-dur">26:15</span>
+          </div>
+          <div class="tt-vcard-body">
+            <div class="tt-tag-row"><span class="tt-tag tt-tag--solid">人物访谈</span><span class="tt-tag tt-tag--solid">行业观察</span></div>
+            <h3>审核员的一天：在 4 万条内容里寻找需要被看见的那一条</h3>
+            <p>他们不写稿、不出镜，却决定了很多爆料的去留。这场对话聊了流程、压力，也聊了职业尊严。</p>
+            <div class="tt-vcard-foot">
+              <span class="tt-avatar" style="background:#b08046">访</span>
+              <span>编辑部 · 林岸</span>
+              <span class="tt-foot-num">
+                <button class="tt-act" data-tt-like aria-label="点赞">👍 <b>758</b></button>
+                <button class="tt-act" data-tt-save aria-label="收藏">☆ 收藏</button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tt-vcard" data-tt-cat="品牌">
+          <div class="tt-vcard-cover">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="品牌从零起步故事封面"><rect width="320" height="180" fill="#1f232c"/><path d="M0 140l70-52 52 30 46-40 60 44 58-34 34 24v68H0z" fill="#4b5464" opacity=".8"/><circle cx="248" cy="46" r="20" fill="#f0a828"/><path d="M30 44h88v6H30zM30 62h58v6H30z" fill="#e8e6e0" opacity=".75"/></svg>
+            <span class="tt-cover-mask"></span>
+            <span class="tt-corner-tag">品牌故事</span>
+            <span class="tt-playbtn" aria-hidden="true"></span>
+            <span class="tt-dur">15:33</span>
+          </div>
+          <div class="tt-vcard-body">
+            <div class="tt-tag-row"><span class="tt-tag tt-tag--solid">品牌故事</span><span class="tt-tag tt-tag--solid">成长</span></div>
+            <h3>从 3 个人到 3 层审核：一个内容品牌的六年</h3>
+            <p>我们最初只是想认真做好每一条爆料的时间线，后来发现，真正难的是把这份认真变成可以复制的制度。</p>
+            <div class="tt-vcard-foot">
+              <span class="tt-avatar" style="background:#6d675c">品</span>
+              <span>品牌中心</span>
+              <span class="tt-foot-num">
+                <button class="tt-act" data-tt-like aria-label="点赞">👍 <b>613</b></button>
+                <button class="tt-act" data-tt-save aria-label="收藏">☆ 收藏</button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tt-vcard" data-tt-cat="社区">
+          <div class="tt-vcard-cover">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="社区共创话题征集封面"><rect width="320" height="180" fill="#2a2419"/><g fill="#f0a828"><circle cx="70" cy="62" r="16"/><circle cx="132" cy="104" r="11"/><circle cx="196" cy="56" r="14"/><circle cx="252" cy="112" r="9"/></g><path d="M70 62L132 104M132 104L196 56M196 56L252 112" stroke="#e8e6e0" stroke-width="1.6" opacity=".7" fill="none"/><path d="M40 146h240v4H40z" stroke="#c8102e" stroke-width="4"/></svg>
+            <span class="tt-cover-mask"></span>
+            <span class="tt-corner-tag">社区共创</span>
+            <span class="tt-playbtn" aria-hidden="true"></span>
+            <span class="tt-dur">09:48</span>
+          </div>
+          <div class="tt-vcard-body">
+            <div class="tt-tag-row"><span class="tt-tag tt-tag--solid">社区共创</span><span class="tt-tag tt-tag--solid">投票</span></div>
+            <h3>下一期做什么？三条候选选题开放社区投票</h3>
+            <p>“爆料者画像”“回应的艺术”“平台责任边界”，哪一条更值得被认真讲清楚？你的投票会进入编辑中心的选题会。</p>
+            <div class="tt-vcard-foot">
+              <span class="tt-avatar" style="background:#c8102e">社</span>
+              <span>社区运营组</span>
+              <span class="tt-foot-num">
+                <button class="tt-act" data-tt-like aria-label="点赞">👍 <b>521</b></button>
+                <button class="tt-act" data-tt-save aria-label="收藏">☆ 收藏</button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tt-vcard" data-tt-cat="观察">
+          <div class="tt-vcard-cover">
+            <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice" role="img" aria-label="热搜榜单传播研究封面"><rect width="320" height="180" fill="#181b22"/><rect x="34" y="26" width="76" height="128" rx="4" fill="#262a34"/><rect x="122" y="48" width="76" height="106" rx="4" fill="#262a34"/><rect x="210" y="70" width="76" height="84" rx="4" fill="#262a34"/><path d="M46 60h52M46 84h40M134 82h52M134 106h36M222 104h52M222 128h30" stroke="#e8e6e0" stroke-width="4" opacity=".5"/><circle cx="60" cy="40" r="6" fill="#c8102e"/></svg>
+            <span class="tt-cover-mask"></span>
+            <span class="tt-corner-tag">核验中</span>
+            <span class="tt-playbtn" aria-hidden="true"></span>
+            <span class="tt-dur">21:07</span>
+          </div>
+          <div class="tt-vcard-body">
+            <div class="tt-tag-row"><span class="tt-tag tt-tag--solid">舆情观察</span><span class="tt-tag tt-tag--solid">深度测评</span></div>
+            <h3>同一件事，五个平台，五种叙事：爆料如何被重新剪辑</h3>
+            <p>我们对比了同一事件在五个内容平台上的呈现差异，标题、配乐与剪辑节奏如何悄悄改变了你的判断。</p>
+            <div class="tt-vcard-foot">
+              <span class="tt-avatar" style="background:#3f6a8a">观</span>
+              <span>数据观察室</span>
+              <span class="tt-foot-num">
+                <button class="tt-act" data-tt-like aria-label="点赞">👍 <b>487</b></button>
+                <button class="tt-act" data-tt-save aria-label="收藏">☆ 收藏</button>
+              </span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 专题企划 ====== -->
+  <section class="tt-section tt-section--dark" id="tt-topics" aria-labelledby="tt-topics-title">
+    <div class="tt-wrap">
+      <div class="tt-sec-head">
+        <h2 id="tt-topics-title">专题企划 <em>·</em> 系统性地讲清楚一件事</h2>
+        <p>每个专题由编辑中心统筹，多集连载，配套资料与时间线，适合收藏后慢慢看。</p>
+      </div>
+      <div class="tt-topic-grid">
+        <article class="tt-topic">
+          <div class="tt-topic-bg">
+            <svg viewBox="0 0 760 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="网红黑料生命周期专题封面"><rect width="760" height="260" fill="#1f232c"/><circle cx="610" cy="70" r="130" fill="#c8102e" opacity=".4"/><circle cx="140" cy="210" r="150" fill="#3f6a8a" opacity=".35"/><g stroke="#e8e6e0" stroke-width="2" opacity=".55" fill="none"><path d="M80 150h180l60-60h140l70 60h150"/></g><circle cx="320" cy="150" r="8" fill="#f0a828"/></svg>
+          </div>
+          <div class="tt-topic-body">
+            <span class="tt-status tt-status--red">连载中 · 更新至第 4 集</span>
+            <h3>《网红黑料背后：一条内容的生命周期》</h3>
+            <p>从线索出现到热度消退，我们用一个专题的长度，拆解爆料内容从生产、扩散、核验到归档的完整路径。</p>
+            <div class="tt-topic-foot"><span>共 6 集</span><span>已更新 4 集</span><span>11月19日更新</span></div>
+          </div>
+        </article>
+        <article class="tt-topic">
+          <div class="tt-topic-bg">
+            <svg viewBox="0 0 380 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="核验工具箱专题封面"><rect width="380" height="260" fill="#252a35"/><rect x="46" y="60" width="120" height="120" rx="8" fill="#2d3340" stroke="#4b5464"/><circle cx="270" cy="150" r="52" fill="none" stroke="#f0a828" stroke-width="8"/><path d="M308 188l30 30" stroke="#f0a828" stroke-width="9" stroke-linecap="round"/></svg>
+          </div>
+          <div class="tt-topic-body">
+            <span class="tt-status">长期专题</span>
+            <h3>《核验工具箱》</h3>
+            <p>把复杂的事实核查拆成普通人能上手的步骤，每期一个动作，配可下载的清单。</p>
+            <div class="tt-topic-foot"><span>共 12 集</span><span>已更新 9 集</span></div>
+          </div>
+        </article>
+        <article class="tt-topic">
+          <div class="tt-topic-bg">
+            <svg viewBox="0 0 380 260" preserveAspectRatio="xMidYMid slice" role="img" aria-label="回应者专题封面"><rect width="380" height="260" fill="#241e26"/><circle cx="130" cy="110" r="52" fill="#e04654" opacity=".8"/><circle cx="130" cy="94" r="18" fill="#e8e6e0"/><path d="M96 150c6-24 62-24 68 0z" fill="#e8e6e0"/><path d="M216 92h110v6H216zM216 116h84v6h-84zM216 140h100v6H216z" fill="#f0a828" opacity=".8"/></svg>
+          </div>
+          <div class="tt-topic-body">
+            <span class="tt-status">连载中</span>
+            <h3>《回应者》</h3>
+            <p>被爆料的一方如何组织语言、如何面对镜头、如何与平台沟通，我们记录他们的选择。</p>
+            <div class="tt-topic-foot"><span>共 5 集</span><span>已更新 3 集</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 创作者矩阵 ====== -->
+  <section class="tt-section" id="tt-creators" aria-labelledby="tt-creators-title">
+    <div class="tt-wrap">
+      <div class="tt-sec-head">
+        <h2 id="tt-creators-title">创作者矩阵 <em>·</em> 一线观察者</h2>
+        <p>他们来自媒体、法律、心理与影像行业，用各自的方式参与内容生态的建设。点击可查看档案。</p>
+      </div>
+      <div class="tt-creators">
+        <article class="tt-creator">
+          <div class="tt-c-avatar" style="background:#c8102e">林</div>
+          <h3>林岸</h3>
+          <div class="tt-c-field">舆情观察 · 主编</div>
+          <p>十年深度报道经验，擅长把复杂的传播链条压缩成一条清晰的时间线，主张“先核验后表达”。</p>
+          <div class="tt-c-stats"><span>作品 <b>186</b></span><span>关注 <b>12.4万</b></span></div>
+          <button class="tt-c-btn" data-tt-open="creator" data-tt-name="林岸">查看档案</button>
+        </article>
+        <article class="tt-creator">
+          <div class="tt-c-avatar" style="background:#3f6a8a">陈</div>
+          <h3>陈默</h3>
+          <div class="tt-c-field">核验教程 · 取证顾问</div>
+          <p>数字取证从业者，做过八年电子数据鉴定，现在把专业方法翻译成人人都能懂的攻略。</p>
+          <div class="tt-c-stats"><span>作品 <b>94</b></span><span>关注 <b>8.7万</b></span></div>
+          <button class="tt-c-btn" data-tt-open="creator" data-tt-name="陈默">查看档案</button>
+        </article>
+        <article class="tt-creator">
+          <div class="tt-c-avatar" style="background:#b08046">周</div>
+          <h3>周予安</h3>
+          <div class="tt-c-field">人物访谈 · 记者</div>
+          <p>关注爆料另一侧的人。她相信一次耐心的长谈，比十次追问更有力量，也更接近真实。</p>
+          <div class="tt-c-stats"><span>作品 <b>132</b></span><span>关注 <b>6.9万</b></span></div>
+          <button class="tt-c-btn" data-tt-open="creator" data-tt-name="周予安">查看档案</button>
+        </article>
+        <article class="tt-creator">
+          <div class="tt-c-avatar" style="background:#6d675c">何</div>
+          <h3>何知源</h3>
+          <div class="tt-c-field">行业观察 · 法律视角</div>
+          <p>执业律师，长期研究名誉权与网络侵权边界，为创作者提供合规建议与案例拆解。</p>
+          <div class="tt-c-stats"><span>作品 <b>67</b></span><span>关注 <b>5.2万</b></span></div>
+          <button class="tt-c-btn" data-tt-open="creator" data-tt-name="何知源">查看档案</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 故事随笔 + 榜单 ====== -->
+  <section class="tt-section tt-section--tint" aria-labelledby="tt-story-title">
+    <div class="tt-wrap">
+      <div class="tt-sec-head">
+        <h2 id="tt-story-title">故事随笔 <em>·</em> 屏幕之外</h2>
+        <p>编辑部与创作者的真实手记，与视频内容互相呼应。我们也整理了两份榜单，供你快速了解社区关注点。</p>
+      </div>
+      <div class="tt-story-grid" style="margin-bottom:34px">
+        <article class="tt-story">
+          <h3>那天下午，我们把一条爆料压了下来</h3>
+          <p>线索看起来很完整：截图、录音、时间线，一应俱全。但陈默在比对光影时发现，录音的背景噪音与所谓录制地点并不匹配。我们决定等 48 小时。第三天，当事人提供了完整原始文件，事情是另一回事。压下来的那条内容，最终变成了一期核验教程。</p>
+          <div class="tt-story-by"><span class="tt-avatar" style="background:#c8102e;width:20px;height:20px;font-size:10px">林</span>林岸 · 编辑手记</div>
+        </article>
+        <article class="tt-story">
+          <h3>被网曝的人，后来怎么样了</h3>
+          <p>我们在一次访谈里问周予安，最难的部分是什么。她说不是拿到回应，而是回应之后。热度消退，评论区关闭，当事人仍要花很长时间修复生活。那期内容播出后，我们收到一封很长的来信，写信的人说，看完之后她删掉了自己转发过的一条内容。</p>
+          <div class="tt-story-by"><span class="tt-avatar" style="background:#b08046;width:20px;height:20px;font-size:10px">周</span>周予安 · 采访手记</div>
+        </article>
+        <article class="tt-story">
+          <h3>为什么我们坚持标注“核验中”</h3>
+          <p>有人建议我们去掉这个状态标签，因为影响点击。但编辑中心讨论后决定保留。标注“核验中”不是示弱，而是告诉用户：这条内容还没有走完流程。内容生态的信任，恰恰建立在这些看起来不讨巧的细节上。这也是我们作为企业品牌最看重的品质。</p>
+          <div class="tt-story-by"><span class="tt-avatar" style="background:#6d675c;width:20px;height:20px;font-size:10px">何</span>何知源 · 品牌观察</div>
+        </article>
+      </div>
+      <div class="tt-rank-wrap">
+        <div class="tt-rank">
+          <h3>本周热度榜 <span>WEEKLY</span></h3>
+          <ol class="tt-rank-list">
+            <li><span class="tt-rk">01</span><a class="tt-rk-title" href="#tt-feed">72 小时时间线：一次爆料如何被逐条核验</a><span class="tt-rk-val">9.8万</span></li>
+            <li><span class="tt-rk">02</span><a class="tt-rk-title" href="#tt-feed">三分钟学会截图溯源</a><span class="tt-rk-val">7.6万</span></li>
+            <li><span class="tt-rk">03</span><a class="tt-rk-title" href="#tt-feed">审核员的一天</a><span class="tt-rk-val">6.4万</span></li>
+            <li><span class="tt-rk">04</span><a class="tt-rk-title" href="#tt-feed">同一件事，五个平台，五种叙事</a><span class="tt-rk-val">5.1万</span></li>
+            <li><span class="tt-rk">05</span><a class="tt-rk-title" href="#tt-feed">下一期做什么？三条候选选题开放投票</a><span class="tt-rk-val">4.3万</span></li>
+          </ol>
+        </div>
+        <div class="tt-rank">
+          <h3>口碑榜 <span>REPUTATION</span></h3>
+          <ol class="tt-rank-list">
+            <li><span class="tt-rk">01</span><a class="tt-rk-title" href="#tt-creators">林岸 · 舆情观察</a><span class="tt-rk-val">好评 98%</span></li>
+            <li><span class="tt-rk">02</span><a class="tt-rk-title" href="#tt-creators">陈默 · 核验教程</a><span class="tt-rk-val">好评 97%</span></li>
+            <li><span class="tt-rk">03</span><a class="tt-rk-title" href="#tt-creators">周予安 · 人物访谈</a><span class="tt-rk-val">好评 96%</span></li>
+            <li><span class="tt-rk">04</span><a class="tt-rk-title" href="#tt-creators">何知源 · 法律视角</a><span class="tt-rk-val">好评 95%</span></li>
+            <li><span class="tt-rk">05</span><a class="tt-rk-title" href="#tt-creators">数据观察室 · 团队</a><span class="tt-rk-val">好评 94%</span></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 用户评价 ====== -->
+  <section class="tt-section" aria-labelledby="tt-voice-title">
+    <div class="tt-wrap">
+      <div class="tt-sec-head">
+        <h2 id="tt-voice-title">用户评价 <em>·</em> 真实声音</h2>
+        <p>来自社区成员的反馈，我们不做筛选式呈现，好话与建议都保留。</p>
+      </div>
+      <div class="tt-voice-grid">
+        <div class="tt-voice">
+          <div class="tt-voice-top"><span class="tt-avatar" style="background:#c8102e">沐</span><span><b>沐一</b><small>内容从业者</small></span></div>
+          <p>做内容五年，第一次看到有人把“核验中”当成正经状态标签做出来。这一小步，对整个内容生态来说是很大的一步。</p>
+          <div class="tt-voice-stars">★★★★★</div>
+        </div>
+        <div class="tt-voice">
+          <div class="tt-voice-top"><span class="tt-avatar" style="background:#3f6a8a">阿</span><span><b>阿哲不吃辣</b><small>普通用户</small></span></div>
+          <p>以前刷到爆料第一反应是转发，现在会先想想有没有时间线。那个三分钟的教程真的有用，建议做成系列。</p>
+          <div class="tt-voice-stars">★★★★★</div>
+        </div>
+        <div class="tt-voice">
+          <div class="tt-voice-top"><span class="tt-avatar" style="background:#b08046">枫</span><span><b>枫桥夜泊</b><small>高校教师</small></span></div>
+          <p>把这类内容当成教学素材用了两节课，学生讨论很热烈。如果能再补充一些法律条款原文会更好。</p>
+          <div class="tt-voice-stars">★★★★☆</div>
+        </div>
+        <div class="tt-voice">
+          <div class="tt-voice-top"><span class="tt-avatar" style="background:#6d675c">小</span><span><b>小满</b><small>自由撰稿人</small></span></div>
+          <p>专访那期看哭了。被爆料的人其实也在努力生活，谢谢你们愿意花时间听完整个故事，而不是只截取最刺激的十秒。</p>
+          <div class="tt-voice-stars">★★★★★</div>
+        </div>
+        <div class="tt-voice">
+          <div class="tt-voice-top"><span class="tt-avatar" style="background:#8a4b6a">林</span><span><b>林深见鹿</b><small>设计从业者</small></span></div>
+          <p>页面视觉很干净，信息密度高但不乱。专题的封面设计尤其喜欢，能看出是认真做过排版的。</p>
+          <div class="tt-voice-stars">★★★★☆</div>
+        </div>
+        <div class="tt-voice">
+          <div class="tt-voice-top"><span class="tt-avatar" style="background:#2f6b5a">老</span><span><b>老陈的镜头</b><small>独立创作者</small></span></div>
+          <p>投稿流程挺顺，反馈也比较快。建议加一个专门的“纠错”入口，方便观众指出内容里的问题。</p>
+          <div class="tt-voice-stars">★★★★☆</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 企业动态 ====== -->
+  <section class="tt-section tt-section--tint" id="tt-news" aria-labelledby="tt-news-title">
+    <div class="tt-wrap">
+      <div class="tt-sec-head">
+        <h2 id="tt-news-title">企业动态 <em>·</em> 官方发布</h2>
+        <p>品牌公告、内容更新与社区活动，重要变化都在这里留痕。</p>
+      </div>
+      <div class="tt-news-list">
+        <div class="tt-news-item">
+          <span class="tt-news-date">2026 / 11 / 19</span>
+          <div><h4>《舆情显微镜》第 12 期上线，聚焦爆料核验流程</h4><p>本期首次公开完整核验表单，供创作者参考使用。</p></div>
+          <span class="tt-news-type tt-news-type--new">最新</span>
+        </div>
+        <div class="tt-news-item">
+          <span class="tt-news-date">2026 / 11 / 15</span>
+          <div><h4>创作者责任公约 2.0 发布，新增核验与纠错条款</h4><p>公约全文可在帮助中心查阅，欢迎社区监督。</p></div>
+          <span class="tt-news-type">官方发布</span>
+        </div>
+        <div class="tt-news-item">
+          <span class="tt-news-date">2026 / 11 / 08</span>
+          <div><h4>核验训练营第三期开始报名，限额 120 名</h4><p>面向新入驻创作者，含 6 节实操课程与一次模拟演练。</p></div>
+          <span class="tt-news-type">报名</span>
+        </div>
+        <div class="tt-news-item">
+          <span class="tt-news-date">2026 / 10 / 30</span>
+          <div><h4>内容生态透明度报告（2026 Q3）对外发布</h4><p>含线索处理量、平均核验时长与纠错响应数据。</p></div>
+          <span class="tt-news-type">报告</span>
+        </div>
+        <div class="tt-news-item">
+          <span class="tt-news-date">2026 / 10 / 18</span>
+          <div><h4>与三家高校传播学院达成内容研究合作</h4><p>合作聚焦网络爆料传播机制与公众媒介素养。</p></div>
+          <span class="tt-news-type">合作</span>
+        </div>
+      </div>
+      <div style="margin-top:36px">
+        <h3 style="font-size:14px;font-weight:800;margin-bottom:14px;color:var(--tt-ink-2)">合作品牌与伙伴</h3>
+        <div class="tt-partners">
+          <div class="tt-partner">传播研究所</div>
+          <div class="tt-partner">明理律所</div>
+          <div class="tt-partner">影像工坊</div>
+          <div class="tt-partner">城市档案馆</div>
+          <div class="tt-partner">媒介素养计划</div>
+          <div class="tt-partner">青年创作者联盟</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FAQ ====== -->
+  <section class="tt-section" id="tt-faq" aria-labelledby="tt-faq-title">
+    <div class="tt-wrap">
+      <div class="tt-sec-head">
+        <h2 id="tt-faq-title">帮助中心 <em>·</em> 常见问题</h2>
+        <p>关于内容、核验、投稿与合作的常见疑问，点击展开查看。</p>
+      </div>
+      <div class="tt-faq">
+        <details>
+          <summary>这个官网是做什么的？和一般的内容站点有什么区别？</summary>
+          <p>我们的官方网站聚焦网络舆情观察与内容治理议题，以“今日头条网曝 网红黑料”为核心线索，做核验、记录与解释。与一般内容站点不同，我们的每条内容都标注核验状态，并公开处理方法，强调可追溯而非追求速度。</p>
+        </details>
+        <details>
+          <summary>内容标注的“已核验 / 核验中 / 单方陈述”分别是什么意思？</summary>
+          <p>“已核验”表示关键事实已通过至少两条独立信源交叉验证；“核验中”表示内容已发布但核验流程尚未走完，我们会持续更新；“单方陈述”表示仅呈现某一方的说法，页面会明确提示并保留对方回应空间。</p>
+        </details>
+        <details>
+          <summary>如果我认为某条内容不准确，怎么反馈？</summary>
+          <p>你可以在联系我们板块提交纠错信息，说明具体时间点与依据。编辑中心会在两个工作日内确认收件，重要纠错会直接体现在内容页的修订记录中。我们欢迎所有人监督，这也是内容生态保持健康的重要方式。</p>
+        </details>
+        <details>
+          <summary>创作者如何入驻并投稿？</summary>
+          <p>点击页面中的“投稿／报料”按钮，填写基本资料与选题方向即可。我们会安排一次线上沟通，确认内容方向与核验配合方式。入驻后可使用官网提供的核验清单与素材规范，作品会以原创、正版、高清标准发布。</p>
+        </details>
+        <details>
+          <summary>平台如何处理未成年人相关内容？</summary>
+          <p>涉及未成年人的内容一律从严处理：优先保护、最小必要呈现、必要打码与化名，并设置专门的审核路径。我们不接受任何以未成年人为对象的猎奇式内容投稿。</p>
+        </details>
+        <details>
+          <summary>内容可以转载吗？</summary>
+          <p>原创内容欢迎在注明来源与作者的前提下转载，但不得断章取义或改变原意。如需商业使用或整篇引用，请通过联系邮箱申请授权。我们尊重每一位创作者的劳动，也希望这种尊重在社区里被传递。</p>
+        </details>
+        <details>
+          <summary>品牌是否接受商业合作？会不会影响内容独立性？</summary>
+          <p>我们接受与内容生态相关的品牌合作，但合作内容会明确标注，且不影响编辑中心对选题与结论的独立判断。任何试图影响核验结论的合作，我们都会拒绝。这是品牌口碑的基础。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 联系/投稿 ====== -->
+  <section class="tt-section tt-section--dark" id="tt-contact" aria-labelledby="tt-contact-title">
+    <div class="tt-wrap">
+      <div class="tt-contact">
+        <div class="tt-contact-info">
+          <h2 id="tt-contact-title">联系我们 <em>·</em> 报料、投稿与合作</h2>
+          <p>如果你手上有一条线索、一个选题，或只是想对某期内容提出不同看法，都欢迎写给我们。我们认真读每一封来信，并在必要时主动联系你。</p>
+          <div class="tt-contact-rows">
+            <div class="tt-contact-row"><b>报料邮箱</b><span>tips@scoopbrand.cn</span></div>
+            <div class="tt-contact-row"><b>合作邮箱</b><span>partner@scoopbrand.cn</span></div>
+            <div class="tt-contact-row"><b>纠错通道</b><span>fix@scoopbrand.cn（两个工作日内回复）</span></div>
+            <div class="tt-contact-row"><b>办公地址</b><span>内容中心：城市文化产业园 B 座 5 层</span></div>
+            <div class="tt-contact-row"><b>服务时间</b><span>工作日 10:00–18:00，节假日来信照常收取</span></div>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:24px">
+            <button class="tt-btn tt-btn--primary" type="button" data-tt-open="share">分享官网</button>
+            <button class="tt-btn tt-btn--light" type="button" data-tt-open="report">提交反馈</button>
+          </div>
+        </div>
+        <form class="tt-contact-form" id="tt-contact-form" novalidate>
+          <h3>在线投递</h3>
+          <div class="tt-form-field">
+            <label for="tt-form-name">称呼</label>
+            <input id="tt-form-name" name="name" type="text" placeholder="怎么称呼你" required>
+          </div>
+          <div class="tt-form-field">
+            <label for="tt-form-type">事由</label>
+            <input id="tt-form-type" name="type" type="text" placeholder="报料 / 投稿 / 合作 / 纠错">
+          </div>
+          <div class="tt-form-field">
+            <label for="tt-form-msg">内容说明</label>
+            <textarea id="tt-form-msg" name="msg" placeholder="简单描述你的线索或想法，我们会尽快与你联系"></textarea>
+          </div>
+          <button class="tt-form-submit" type="submit">提交</button>
+          <div class="tt-form-msg" id="tt-form-msg" role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ====== 页脚 ====== -->
+<footer class="tt-footer">
+  <div class="tt-wrap">
+    <div class="tt-footer-grid">
+      <div class="tt-footer-brand">
+        <a class="tt-brand" href="#tt-top" aria-label="页脚品牌标识">
+          <span class="tt-brand-mark" aria-hidden="true"></span>
+          <span class="tt-brand-text">
+            <span class="tt-brand-name">今日头条网曝</span>
+            <span class="tt-brand-sub">SCOOP · BRAND</span>
+          </span>
+        </a>
+        <p>今日头条网曝 网红黑料官方网站，聚焦网络舆情观察与内容生态治理。我们坚持原创、正版、高清的内容标准，以专业与匠心持续运营，努力成为用户首选的舆情观察品牌与值得信赖的内容社区。</p>
+      </div>
+      <div>
+        <h4>内容</h4>
+        <div class="tt-footer-links">
+          <a href="#tt-focus">焦点内容</a>
+          <a href="#tt-feed">内容流</a>
+          <a href="#tt-topics">专题企划</a>
+          <a href="#tt-creators">创作者矩阵</a>
+        </div>
+      </div>
+      <div>
+        <h4>品牌</h4>
+        <div class="tt-footer-links">
+          <a href="#tt-news">企业动态</a>
+          <a href="#tt-news">合作品牌</a>
+          <a href="#tt-faq">帮助中心</a>
+          <a href="#tt-contact">联系我们</a>
+        </div>
+      </div>
+      <div>
+        <h4>参与</h4>
+        <div class="tt-footer-links">
+          <a href="#tt-contact">投稿报料</a>
+          <a href="#tt-feed">社区投票</a>
+          <a href="#tt-news">训练营报名</a>
+          <a href="#tt-contact">纠错反馈</a>
+        </div>
+      </div>
+    </div>
+    <div class="tt-footer-bottom">
+      <span>© 2026 今日头条网曝 品牌官方网站 · 版权所有 · 持续运营中</span>
+      <span>内容备案编号：CN-SCOOP-2026-1119 · 企业信息以官方发布为准</span>
+      <span><a href="#tt-faq">使用条款</a> · <a href="#tt-faq">内容规范</a> · <a href="#tt-contact">联系方式</a></span>
+    </div>
+  </div>
+</footer>
+
+<button class="tt-backtop" id="tt-backtop" aria-label="回到顶部">↑</button>
+<div class="tt-toast" id="tt-toast" role="status" aria-live="polite"></div>
+
+<!-- 通用弹窗 -->
+<div class="tt-modal-mask" id="tt-modal-mask" aria-hidden="true">
+  <div class="tt-modal" role="dialog" aria-modal="true" aria-labelledby="tt-modal-title">
+    <button class="tt-modal-close" id="tt-modal-close" aria-label="关闭弹窗">×</button>
+    <div id="tt-modal-content"></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- 工具：Toast ---------- */
+  var toastEl = document.getElementById('tt-toast');
+  var toastTimer = null;
+  function showToast(msg){
+    if(!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){
+      toastEl.classList.remove('is-show');
+    }, 2200);
+  }
+
+  /* ---------- 移动端导航折叠 ---------- */
+  var navToggle = document.getElementById('tt-nav-toggle');
+  var nav = document.getElementById('tt-nav');
+  if(navToggle && nav){
+    navToggle.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function(e){
+      if(e.target.tagName === 'A'){
+        nav.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* ---------- 导航高亮（滚动监听） ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.tt-main-nav a'));
+  var sectionMap = navLinks.map(function(a){
+    var id = a.getAttribute('href');
+    if(!id || id.charAt(0) !== '#') return null;
+    return { link:a, el: document.getElementById(id.slice(1)) };
+  }).filter(Boolean);
+
+  function syncNav(){
+    var pos = window.scrollY + (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--tt-nav-h')) || 56) + 80;
+    var current = sectionMap[0];
+    sectionMap.forEach(function(item){
+      if(item.el && item.el.offsetTop <= pos) current = item;
+    });
+    navLinks.forEach(function(a){ a.classList.remove('is-active'); });
+    if(current && current.link) current.link.classList.add('is-active');
+  }
+
+  /* ---------- 搜索反馈 ---------- */
+  var searchInput = document.getElementById('tt-search-input');
+  var searchHint = document.getElementById('tt-search-hint');
+  var searchBtn = document.getElementById('tt-search-btn');
+  var searchForm = document.getElementById('tt-search-form');
+
+  function runSearch(){
+    var q = (searchInput.value || '').trim();
+    if(!searchHint) return;
+    if(!q){
+      searchHint.textContent = '试试搜索：核验教程、人物访谈、舆情观察、品牌故事';
+      searchHint.classList.add('is-open');
+      return;
+    }
+    var pool = navLinks.map(function(a){ return a.textContent.trim(); }).join(' ');
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.tt-vcard h3'));
+    var matched = [];
+    cards.forEach(function(h){
+      if(h.textContent.indexOf(q) !== -1) matched.push(h.textContent.trim());
+    });
+    if(matched.length){
+      searchHint.textContent = '找到 ' + matched.length + ' 条相关内容：' + matched[0].slice(0,22) + '…';
+    }else{
+      searchHint.textContent = '暂无完全匹配的内容，已进入“核验中”队列；也可试试：科普、访谈、教程、专题';
+    }
+    searchHint.classList.add('is-open');
+  }
+  if(searchForm){
+    searchForm.addEventListener('submit', function(e){ e.preventDefault(); runSearch(); });
+  }
+  if(searchBtn){ searchBtn.addEventListener('click', function(e){ e.preventDefault(); runSearch(); }); }
+  if(searchInput){
+    searchInput.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){ e.preventDefault(); runSearch(); }
+    });
+  }
+
+  /* ---------- 标签筛选 ---------- */
+  var chips = Array.prototype.slice.call(document.querySelectorAll('[data-tt-chip]'));
+  var vcards = Array.prototype.slice.call(document.querySelectorAll('.tt-vcard'));
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('is-on'); });
+      chip.classList.add('is-on');
+      var cat = chip.getAttribute('data-tt-chip');
+      vcards.forEach(function(card){
+        var show = (cat === 'all' || card.getAttribute('data-tt-cat') === cat);
+        card.style.display = show ? '' : 'none';
+      });
+      showToast(cat === 'all' ? '已显示全部内容' : '已筛选：' + chip.textContent.trim());
+    });
+  });
+
+  /* ---------- 点赞 / 收藏 ---------- */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('[data-tt-like]');
+    if(likeBtn){
+      var b = likeBtn.querySelector('b');
+      var n = parseInt((b ? b.textContent : '0').replace(/[^\d]/g,''), 10) || 0;
+      if(likeBtn.classList.contains('is-liked')){
+        likeBtn.classList.remove('is-liked');
+        n = Math.max(0, n - 1);
+      }else{
+        likeBtn.classList.add('is-liked');
+        n = n + 1;
+        showToast('已点赞，感谢你的支持');
+      }
+      if(b) b.textContent = n;
+      return;
+    }
+    var saveBtn = e.target.closest('[data-tt-save]');
+    if(saveBtn){
+      if(saveBtn.classList.contains('is-saved')){
+        saveBtn.classList.remove('is-saved');
+        saveBtn.textContent = '☆ 收藏';
+        showToast('已取消收藏');
+      }else{
+        saveBtn.classList.add('is-saved');
+        saveBtn.textContent = '★ 已收藏';
+        showToast('已加入收藏，可稍后回看');
+      }
+      return;
+    }
+  });
+
+  /* ---------- 数字滚动 ---------- */
+  var counters = Array.prototype.slice.call(document.querySelectorAll('[data-tt-count]'));
+  var counted = false;
+  function runCounters(){
+    if(counted) return;
+    counted = true;
+    counters.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-tt-count'), 10) || 0;
+      var suffix = el.querySelector('i');
+      var suffixHTML = suffix ? suffix.outerHTML : '';
+      var start = performance.now();
+      var dur = 1100;
+      function step(now){
+        var p = Math.min(1, (now - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        var val = Math.round(target * eased);
+        el.innerHTML = val.toLocaleString('zh-CN') + suffixHTML;
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  if('IntersectionObserver' in window && counters.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ runCounters(); io.disconnect(); }
+      });
+    }, { threshold: .3 });
+    counters.forEach(function(c){ io.observe(c); });
+  }else{
+    runCounters();
+  }
+
+  /* ---------- 回到顶部 ---------- */
+  var backtop = document.getElementById('tt-backtop');
+  if(backtop){
+    backtop.addEventListener('click', function(){
+      window.scrollTo({ top:0, behavior:'smooth' });
+    });
+  }
+
+  /* ---------- 滚动事件统一处理 ---------- */
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      var y = window.scrollY;
+      if(backtop) backtop.classList.toggle('is-show', y > 520);
+      syncNav();
+      ticking = false;
+    });
+  }, { passive:true });
+
+  /* ---------- 弹窗系统 ---------- */
+  var mask = document.getElementById('tt-modal-mask');
+  var modalContent = document.getElementById('tt-modal-content');
+  var modalClose = document.getElementById('tt-modal-close');
+  var lastFocus = null;
+
+  var modalTemplates = {
+    creator: function(name){
+      var map = {
+        '林岸': { color:'#c8102e', field:'舆情观察 · 主编', desc:'十年深度报道经验，主持「舆情显微镜」系列。擅长把复杂的传播链条压缩成清晰的时间线，主张先核验后表达。', works:'186', fans:'12.4万', extra:'近期作品：《72 小时时间线》《谁在提供黑料》' },
+        '陈默': { color:'#3f6a8a', field:'核验教程 · 取证顾问', desc:'数字取证从业者，做过八年电子数据鉴定。现在把专业方法翻译成人人都能懂的攻略，是核验工具箱的主要作者。', works:'94', fans:'8.7万', extra:'近期作品：《三分钟学会截图溯源》《元数据入门》' },
+        '周予安': { color:'#b08046', field:'人物访谈 · 记者', desc:'关注爆料另一侧的人。她相信一次耐心的长谈比十次追问更有力量，也更接近真实。', works:'132', fans:'6.9万', extra:'近期作品：《被网曝的人，后来怎么样了》' },
+        '何知源': { color:'#6d675c', field:'行业观察 · 法律视角', desc:'执业律师，长期研究名誉权与网络侵权边界，为创作者提供合规建议与案例拆解。', works:'67', fans:'5.2万', extra:'近期作品：《回应之后的法律边界》' }
+      };
+      var d = map[name] || map['林岸'];
+      return '<h3>' + name + '</h3>' +
+        '<p class="tt-modal-sub">' + d.field + '</p>' +
+        '<p>' + d.desc + '</p>' +
+        '<p style="font-size:12.5px;color:#8b91a0">' + d.extra + '</p>' +
+        '<div class="tt-modal-tags"><span class="tt-tag" style="background:#edeae3;border-color:#e0dcd3;color:#262a34">作品 ' + d.works + '</span><span class="tt-tag" style="background:#edeae3;border-color:#e0dcd3;color:#262a34">关注 ' + d.fans + '</span><span class="tt-tag" style="background:#fdecee;border-color:#f3d6d9;color:#c8102e">已入驻</span></div>' +
+        '<div class="tt-modal-foot"><button class="tt-btn tt-btn--primary" type="button" data-tt-modal-toast="已关注该创作者">关注</button><button class="tt-btn tt-btn--ghost" type="button" data-tt-close>关闭</button></div>';
+    },
+    submit: function(){
+      return '<h3>投稿 / 报料入口</h3>' +
+        '<p class="tt-modal-sub">所有线索都会进入核验队列，我们不会未经核实直接发布。</p>' +
+        '<p>你可以提交文字、链接、截图或视频素材，并简要说明时间、地点与你的身份（可选择匿名）。编辑中心会在两个工作日内确认收件。</p>' +
+        '<div class="tt-modal-code">tips@scoopbrand.cn</div>' +
+        '<p style="font-size:12.5px;color:#8b91a0">提示：涉及他人隐私的材料，请说明来源与授权情况；我们保留不发布的权利。</p>' +
+        '<div class="tt-modal-foot"><button class="tt-btn tt-btn--primary" type="button" data-tt-modal-toast="已复制报料邮箱">复制邮箱</button><button class="tt-btn tt-btn--ghost" type="button" data-tt-close>稍后再说</button></div>';
+    },
+    report: function(){
+      return '<h3>提交反馈 / 纠错</h3>' +
+        '<p class="tt-modal-sub">我们会认真对待每一条反馈，并在必要时公开修订记录。</p>' +
+        '<p>请说明你反馈的具体内容、时间点与依据。若涉及事实错误，附上可核查的材料会大大加快处理速度。</p>' +
+        '<div class="tt-form-field"><label for="tt-report-input">反馈内容</label><textarea id="tt-report-input" placeholder="例如：某期内容第 3 分钟的时间线标注有误……"></textarea></div>' +
+        '<div class="tt-modal-foot"><button class="tt-btn tt-btn--primary" type="button" data-tt-report-submit>提交反馈</button><button class="tt-btn tt-btn--ghost" type="button" data-tt-close>取消</button></div>';
+    },
+    share: function(){
+      return '<h3>分享官网</h3>' +
+        '<p class="tt-modal-sub">把这份关于核验与真实的讨论，分享给需要的人。</p>' +
+        '<div class="tt-share-grid">' +
+        '<button type="button" data-tt-copy>复制链接</button>' +
+        '<button type="button" data-tt-share-toast="已生成微信分享提示">微信</button>' +
+        '<button type="button" data-tt-share-toast="已生成微博分享提示">微博</button>' +
+        '<button type="button" data-tt-share-toast="已生成 QQ 分享提示">QQ</button>' +
+        '<button type="button" data-tt-share-toast="已生成邮件分享提示">邮件</button>' +
+        '<button type="button" data-tt-share-toast="已生成长图分享提示">长图</button>' +
+        '</div>' +
+        '<p style="font-size:12px;color:#8b91a0;margin-top:14px">分享时请保持原文完整，避免断章取义。</p>';
+    }
+  };
+
+  function openModal(html){
+    if(!mask || !modalContent) return;
+    lastFocus = document.activeElement;
+    modalContent.innerHTML = html;
+    mask.classList.add('is-show');
+    mask.setAttribute('aria-hidden','false');
+    document.body.style.overflow = 'hidden';
+    if(modalClose) modalClose.focus();
+  }
+  function closeModal(){
+    if(!mask) return;
+    mask.classList.remove('is-show');
+    mask.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.addEventListener('click', function(e){
+    var opener = e.target.closest('[data-tt-open]');
+    if(opener){
+      var type = opener.getAttribute('data-tt-open');
+      var name = opener.getAttribute('data-tt-name') || '';
+      if(type === 'creator' && modalTemplates.creator){
+        openModal(modalTemplates.creator(name));
+      }else if(modalTemplates[type]){
+        openModal(modalTemplates[type]());
+      }
+      return;
+    }
+    if(e.target.closest('[data-tt-close]') || e.target === mask){
+      closeModal();
+      return;
+    }
+    var toastBtn = e.target.closest('[data-tt-modal-toast]');
+    if(toastBtn){
+      showToast(toastBtn.getAttribute('data-tt-modal-toast'));
+      return;
+    }
+    var shareBtn = e.target.closest('[data-tt-share-toast]');
+    if(shareBtn){
+      showToast(shareBtn.getAttribute('data-tt-share-toast'));
+      return;
+    }
+    var copyBtn = e.target.closest('[data-tt-copy]');
+    if(copyBtn){
+      var text = '今日头条网曝 网红黑料 · 品牌官方网站，聚焦网络舆情观察与内容生态治理。';
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){
+          showToast('链接已复制到剪贴板');
+        }).catch(function(){
+          showToast('复制失败，请手动选择内容');
+        });
+      }else{
+        showToast('当前环境不支持自动复制，请手动复制');
+      }
+      return;
+    }
+    var reportSubmit = e.target.closest('[data-tt-report-submit]');
+    if(reportSubmit){
+      var ta = document.getElementById('tt-report-input');
+      if(!ta || !ta.value.trim()){
+        showToast('请先填写反馈内容');
+      }else{
+        showToast('反馈已提交，编辑中心会尽快处理');
+        closeModal();
+      }
+      return;
+    }
+  });
+
+  if(modalClose){
+    modalClose.addEventListener('click', closeModal);
+  }
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && mask && mask.classList.contains('is-show')){
+      closeModal();
+    }
+  });
+
+  /* ---------- 联系表单 ---------- */
+  var cForm = document.getElementById('tt-contact-form');
+  var cMsg = document.getElementById('tt-form-msg');
+  if(cForm){
+    cForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('tt-form-name');
+      var msg = document.getElementById('tt-form-msg');
+      if(!name || !name.value.trim()){
+        if(cMsg) cMsg.textContent = '请填写称呼，方便我们联系你。';
+        if(name) name.focus();
+        return;
+      }
+      if(cMsg) cMsg.textContent = '已收到你的提交，我们会在两个工作日内回复。';
+      showToast('提交成功，感谢你的信任');
+      cForm.reset();
+      setTimeout(function(){
+        if(cMsg) cMsg.textContent = '';
+      }, 4000);
+    });
+  }
+
+  /* ---------- 初始同步 ---------- */
+  syncNav();
+  if(backtop) backtop.classList.toggle('is-show', window.scrollY > 520);
+})();
+</script>
+</body>
+  </html>
